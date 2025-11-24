@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Personnage : Jean-Christophe Blanchard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --accent: #8e44ad; /* Violet */
+            --danger: #c0392b; /* Rouge */
+            --light: #ecf0f1;
+            --dark: #1a1a1a;
+            --paper: #f4f4f4;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #555;
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+            -webkit-print-color-adjust: exact;
+        }
+
+        .page-container {
+            width: 1000px; 
+            min-height: 1414px; 
+            background-color: var(--paper);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            overflow: hidden;
+        }
+
+        /* --- SIDEBAR (GAUCHE) --- */
+        .sidebar {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: left;
+            border-right: 5px solid var(--accent);
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            margin-bottom: 15px;
+            background-color: #333;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+        
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+        .name-title { text-align: center; margin-bottom: 20px; }
+        .name-title h1 { font-size: 24px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; line-height: 1.2; }
+        .name-title h2 { font-size: 14px; font-weight: 300; color: var(--accent); font-style: italic; }
+
+        .stat-box {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 12px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            text-align: left;
+        }
+
+        .stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 3px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value { font-size: 13px; font-weight: normal; line-height: 1.3; }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .tag {
+            background-color: var(--dark);
+            color: var(--accent);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* --- MAIN CONTENT (DROITE) --- */
+        .main-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+
+        .section-header i { font-size: 20px; color: var(--accent); margin-right: 12px; }
+        .section-header h3 { font-size: 18px; text-transform: uppercase; color: var(--primary); margin: 0; }
+
+        .content-text { font-size: 14px; line-height: 1.6; color: #333; text-align: justify; }
+        .subsection-title { font-weight: bold; color: var(--primary); margin-right: 5px; }
+
+        /* Timeline Style */
+        .timeline-box {
+            background: #fff;
+            border-left: 3px solid var(--accent);
+            padding: 15px;
+            border-radius: 0 5px 5px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .timeline-item {
+            margin-bottom: 8px;
+            font-size: 13px;
+            display: flex;
+        }
+        .timeline-date { font-weight: bold; min-width: 140px; color: var(--primary); }
+        .timeline-event { color: #555; }
+
+        /* Cycle Visuel */
+        .cycle-container {
+            display: flex;
+            justify-content: space-between;
+            background-color: #e8e8e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            gap: 15px;
+        }
+
+        .cycle-step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            padding: 15px 10px;
+            background-color: #fdfdfd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-top: 3px solid transparent;
+        }
+
+        .cycle-step:nth-child(1) { border-top-color: var(--accent); }
+        .cycle-step:nth-child(2) { border-top-color: #e67e22; }
+        .cycle-step:nth-child(3) { border-top-color: var(--danger); }
+
+        .step-title { font-weight: bold; display: block; margin-bottom: 5px; text-transform: uppercase; font-size: 13px; color: var(--primary); }
+        .step-desc { font-size: 12px; color: #666; }
+
+        /* Citations */
+        .quote-box {
+            background-color: var(--primary);
+            color: white;
+            padding: 20px;
+            border-left: 6px solid var(--danger);
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            position: relative;
+            margin-top: 10px;
+        }
+
+        .quote-box::before {
+            content: '"'; font-size: 60px; position: absolute; top: -10px; left: 10px; opacity: 0.2; font-family: Georgia, serif;
+        }
+
+        .quote-item { margin-bottom: 18px; position: relative; z-index: 1; }
+        .quote-item:last-child { margin-bottom: 0; }
+        .quote-text { font-size: 15px; margin-bottom: 4px; display: block; }
+        .quote-meta { font-size: 11px; opacity: 0.7; display: block; text-align: right; font-style: normal; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        @media print {
+            body { background-color: white; padding: 0; }
+            .page-container { box-shadow: none; width: 100%; height: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page-container">
+        <!-- BARRE LATÉRALE -->
+        <aside class="sidebar">
+            <div class="profile-photo">
+                <img src="Juan.jpg" alt="Jean-Christophe Blanchard">
+            </div>
+            
+            <div class="name-title">
+                <h1>Jean-Christophe<br>Blanchard</h1>
+                <h2>(Juan Cristobal)</h2>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Archétype</div>
+                <div class="stat-value" style="color: #a569bd; font-weight:bold;">Le miroir fuyant</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Bagage</div>
+                <div class="stat-value">Ancien polytoxicomane ayant vécu dans la rue</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Qualités</div>
+                <div class="stat-value">Romantique, affectueux, sensible, dévoué envers sa famille et créatif.</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Faiblesses</div>
+                <div class="stat-value">Évitant, fuyant, impulsif et faible estime de soi.</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Vision et Croyances</div>
+                <div class="stat-value">Théories alternatives, fatalisme et spiritualité.</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Valeurs</div>
+                <div class="stat-value">Famille, loyauté et protection des siens.</div>
+            </div>
+
+            <div class="stat-box">
+                <div class="stat-label">Apparence</div>
+                <div class="stat-value">
+                    <strong>Ext. :</strong> Prince charmant punk.<br>
+                    <strong>Int. :</strong> Enfant terrifié.
+                </div>
+            </div>
+
+            <div class="stat-box" style="border-left: 3px solid var(--accent);">
+                <div class="stat-label" style="color: var(--accent);">Leçon</div>
+                <div class="stat-value">Réaliser que sa stratégie de fuite l'empêche de construire la stabilité qu'il désire.</div>
+            </div>
+
+            <div class="tags">
+                <span class="tag">#Père</span>
+                <span class="tag">#Musicien</span>
+                <span class="tag">#VanLife</span>
+                <span class="tag">#Spanglish</span>
+            </div>
+        </aside>
+
+        <!-- CONTENU PRINCIPAL -->
+        <main class="main-content">
+            
+            <!-- Section 1: Fonction et Arc Narratifs -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-book-open"></i>
+                    <h3>Fonction et Arc Narratifs</h3>
+                </div>
+                <p class="content-text">
+                    <span class="subsection-title">Fonction :</span> L'espoir du jumeau d'âme. Juan reflète presque parfaitement l'univers émotionnel de la protagoniste (TPL, peur de l'abandon, besoin de fusion, etc.). Il valide ses émotions, ses besoins, ses peurs et ses blessures par une compréhension intuitive. Il incarne l'espoir d'une relation saine et durable.<br><br>
+                    <span class="subsection-title">Arc :</span> Celui d'une étoile filante. Il entre dans la vie de la protagoniste avec une intensité rassurante, mais révèle rapidement ses failles. Il devient l'instrument de la douleur en reproduisant son schéma de fuite face à une crise potentielle et à sa peur de négliger son fils. Il choisit la sécurité de l'isolement plutôt que le risque de l'amour.
+                </p>
+            </div>
+
+            <!-- Section 2: Psychologie & Attachement -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-brain"></i>
+                    <h3>Psychologie & Attachement</h3>
+                </div>
+                <p class="content-text">
+                    <span class="subsection-title">Style :</span> Désorganisé (Craintif-Évitant).<br>
+                    <span class="subsection-title">Tempérament :</span> Intense, passionné et cyclique (alternant entre enthousiasme et retrait). Introverti par nécessité, mais extraverti dans l'intimité.<br><br>
+                    Son désir d'intimité et de fusion s'oppose à sa peur de l'envahissement, de l'échec et du rejet. Il veut être proche, mais la proximité le terrifie, ce qui le pousse à la destruction du lien. Il illustre parfaitement le dilemme du désorganisé : « Viens ici, va-t'en ».
+                </p>
+            </div>
+
+            <!-- Section 3: Le Cycle (Sans flèches) -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-sync-alt"></i>
+                    <h3>Le Cycle Comportemental</h3>
+                </div>
+                <div class="cycle-container">
+                    <div class="cycle-step">
+                        <span class="step-title">1. IDÉALISATION</span>
+                        <span class="step-desc">Love Bombing, Surnoms ("Mi vida"), Promesses futures.</span>
+                    </div>
+                    <div class="cycle-step">
+                        <span class="step-title">2. PANIQUE</span>
+                        <span class="step-desc">La réalité frappe (responsabilité). Le mur se lève.</span>
+                    </div>
+                    <div class="cycle-step">
+                        <span class="step-title">3. FUITE</span>
+                        <span class="step-desc">Rupture brutale ou blocage immédiat.</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Motivations & Peurs -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Motivations & Peurs</h3>
+                </div>
+                <p class="content-text">
+                    <span class="subsection-title">Désir conscient :</span> Trouver une partenaire stable avec qui bâtir une relation solide et durable.<br>
+                    <span class="subsection-title">Motivation inconsciente :</span> Être validé et aimé inconditionnellement, sans sacrifice et sans la lourdeur du quotidien. Recherche une mère symbolique autant qu'une amante.<br><br>
+                    <span class="subsection-title">Croyance fondamentale :</span> Qu'il est « brisé » ou « incapable d'aimer ».<br>
+                    <span class="subsection-title">Peurs :</span> L'abandon et le rejet, l'échec relationnel et la répétition des schémas douloureux du passé, la culpabilité et le sentiment d'inadéquation, ne pas être un bon père et négliger son fils.
+                </p>
+            </div>
+
+            <!-- Section 5: Ligne du temps (NOUVEAU) -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-hourglass-half"></i>
+                    <h3>Ligne du temps et scènes</h3>
+                </div>
+                <div class="timeline-box">
+                    <div class="timeline-item">
+                        <span class="timeline-date">Septembre 2025</span>
+                        <span class="timeline-event">L'accélération fusionnelle</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Début octobre 2025</span>
+                        <span class="timeline-event">La rupture par le blocage</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Mi octobre 2025</span>
+                        <span class="timeline-event">Le déblocage et le retour</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Début novembre 2025</span>
+                        <span class="timeline-event">La panique de la grossesse et la fin froide</span>
+                    </div>
+                    <div class="timeline-item">
+                        <span class="timeline-date">Mi novembre 2025</span>
+                        <span class="timeline-event">La tentative de reprise à zéro</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Citations -->
+            <div class="section">
+                <div class="section-header">
+                    <i class="fas fa-quote-right"></i>
+                    <h3>Citations marquantes</h3>
+                </div>
+                <div class="quote-box">
+                    <div class="quote-item">
+                        <span class="quote-text">"Je suis incapable d'aimer maintenant, car mes blessures sont toujours là."</span>
+                        <span class="quote-meta">— Le bouclier.</span>
+                    </div>
+                    <div class="quote-item">
+                        <span class="quote-text">"Do svidaniya."</span>
+                        <span class="quote-meta">— La froideur de la fin.</span>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+</body>
+</html>
+
