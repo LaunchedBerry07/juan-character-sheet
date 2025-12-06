@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche Personnage : Jean-Christophe Blanchard (v4 Timeline Correct)</title>
+    <title>Fiche Personnage : Jean-Christophe Blanchard (V5 Complète)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -142,41 +142,65 @@
 
         <!-- ======================= SLIDE 2 ======================= -->
         <div class="slide p-12 flex flex-col">
-            <h2 class="text-6xl text-center mb-10 border-b-8 border-black pb-4">PSYCHOLOGIE</h2>
+            <h2 class="text-6xl text-center mb-6 border-b-8 border-black pb-2">PSYCHOLOGIE</h2>
 
-            <div class="flex-grow space-y-10">
-                <div class="grid grid-cols-2 gap-8">
-                    <div class="ink-border bg-white p-6">
-                        <h3 class="text-3xl text-green-800 mb-2">Qualités</h3>
-                        <p class="body-text text-xl leading-relaxed">Romantique, affectueux, sensible, dévoué envers sa famille et créatif.</p>
+            <div class="flex-grow space-y-6">
+                
+                <!-- Tempérament (Nuances) -->
+                <div class="bg-white p-6 ink-border">
+                    <h3 class="text-2xl font-bold mb-2 uppercase border-b border-black inline-block">Tempérament</h3>
+                    <p class="body-text text-xl leading-snug mb-2">
+                        <span class="font-bold">Cyclique :</span> Alterne entre enthousiasme et retrait.
+                    </p>
+                    <p class="body-text text-xl leading-snug">
+                         <span class="font-bold">Dichotomie :</span> Introverti par nécessité, mais extraverti dans l'intimité.
+                    </p>
+                </div>
+
+                <!-- Traits Grid -->
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="ink-border bg-green-50 p-4">
+                        <h3 class="text-2xl text-green-800 mb-1">Qualités</h3>
+                        <p class="body-text text-lg leading-tight">Romantique, affectueux, sensible, dévoué envers sa famille et créatif.</p>
                     </div>
-                    <div class="ink-border bg-white p-6">
-                         <h3 class="text-3xl text-red-800 mb-2">Faiblesses</h3>
-                        <p class="body-text text-xl leading-relaxed">Évitant, fuyant, impulsif et faible estime de soi.</p>
+                    <div class="ink-border bg-red-50 p-4">
+                         <h3 class="text-2xl text-red-800 mb-1">Faiblesses</h3>
+                        <p class="body-text text-lg leading-tight">Évitant, fuyant, impulsif et faible estime de soi.</p>
                     </div>
                 </div>
 
-                <div class="bg-gray-100 p-8 border-l-8 border-gray-400">
-                    <h3 class="text-3xl font-bold mb-4 uppercase">Motivations & Peurs</h3>
-                    <ul class="space-y-4 body-text text-2xl">
+                <!-- Vision & Valeurs (New) -->
+                <div class="flex gap-6">
+                    <div class="w-1/2 bg-gray-100 p-4 border-l-4 border-black">
+                        <h3 class="text-xl font-bold uppercase mb-1">Vision & Croyances</h3>
+                        <p class="body-text text-lg leading-tight">Théories alternatives, fatalisme et spiritualité.</p>
+                    </div>
+                    <div class="w-1/2 bg-gray-100 p-4 border-l-4 border-black">
+                         <h3 class="text-xl font-bold uppercase mb-1">Valeurs</h3>
+                         <p class="body-text text-lg leading-tight">Famille, loyauté et protection des siens.</p>
+                    </div>
+                </div>
+
+                <!-- Motivations & Peurs (Expanded) -->
+                <div class="bg-gray-100 p-6 border-l-8 border-gray-400">
+                    <h3 class="text-2xl font-bold mb-2 uppercase">Motivations & Peurs</h3>
+                    <ul class="space-y-2 body-text text-xl">
                         <li><span class="font-bold">Conscient :</span> Bâtir une relation solide.</li>
                         <li><span class="font-bold">Inconscient :</span> Cherche une mère symbolique. Être aimé sans la lourdeur du quotidien.</li>
-                        <li><span class="font-bold text-red-700">Peurs :</span> L'envahissement, l'échec, négliger son fils.</li>
+                        <li class="border-t border-gray-300 pt-2"><span class="font-bold text-red-700">Croyance Fondamentale :</span> Qu'il est brisé ou incapable d'aimer.</li>
+                        <li><span class="font-bold text-red-700">Peurs :</span> Répétition des schémas douloureux, culpabilité, sentiment d'inadéquation, négliger son fils.</li>
                     </ul>
                 </div>
 
-                <div class="bg-black text-white p-8 text-center transform -rotate-1 shadow-xl border-4 border-white outline outline-4 outline-black">
-                    <h3 class="uppercase tracking-[0.3em] text-xl mb-2 text-gray-300">Style d'Attachement</h3>
-                    <p class="marker-font text-6xl text-yellow-400 mb-2">DÉSORGANISÉ</p>
-                    <p class="text-2xl font-bold mb-4">(Craintif - Évitant)</p>
-                    <p class="body-text text-2xl italic px-10">"Viens ici, va-t'en." — Le dilemme permanent.</p>
+                <!-- Attachment Style -->
+                <div class="bg-black text-white p-6 text-center transform -rotate-1 shadow-lg border-4 border-white outline outline-2 outline-black">
+                    <p class="marker-font text-5xl text-yellow-400 mb-1">DÉSORGANISÉ</p>
+                    <p class="body-text text-xl italic px-4">"Viens ici, va-t'en." — Le dilemme permanent.</p>
                 </div>
 
-                <div class="mt-8 text-center space-y-8 py-6 border-y-4 border-dashed border-gray-400">
-                    <p class="handwritten text-3xl leading-relaxed text-gray-800">
-                        "Je suis incapable d'aimer maintenant, car mes blessures sont toujours là."
-                    </p>
-                    <p class="font-bold text-5xl uppercase tracking-widest text-red-700 mt-6">
+                 <!-- Quote -->
+                <div class="mt-4 text-center">
+                    <p class="font-bold text-4xl uppercase tracking-widest text-red-700">
                         "DO SVIDANIYA."
                     </p>
                 </div>
@@ -189,82 +213,87 @@
         <!-- ======================= SLIDE 3 ======================= -->
         <div class="slide p-12 flex flex-col">
             
-            <div class="mb-12">
-                 <h3 class="text-center font-bold text-2xl uppercase mb-6 tracking-widest border-b-2 border-black inline-block pb-1">Le Cycle Comportemental</h3>
-                 <div class="flex justify-between text-center gap-4">
-                     <div class="flex-1 bg-white ink-border p-4">
-                         <div class="text-5xl font-bold text-gray-300 mb-2">1</div>
-                         <h4 class="handwritten text-xl font-bold text-green-700">IDÉALISATION</h4>
-                         <p class="body-text text-lg">Love Bombing, "Mi Vida"</p>
+            <!-- Leçon Narrative (New) -->
+            <div class="bg-black text-white p-6 text-center transform rotate-1 mb-8 border-4 border-dashed border-white ring-4 ring-black">
+                <p class="uppercase text-sm tracking-[0.3em] text-gray-400 mb-2">Leçon à retenir</p>
+                <p class="marker-font text-2xl leading-relaxed text-yellow-200">
+                    RÉALISER QUE SA STRATÉGIE DE FUITE L'EMPÊCHE DE CONSTRUIRE LA STABILITÉ QU'IL DÉSIRE.
+                </p>
+            </div>
+
+            <!-- Cycle Comportemental (Detailed) -->
+            <div class="mb-8">
+                 <h3 class="text-center font-bold text-xl uppercase mb-4 tracking-widest border-b-2 border-black inline-block pb-1">Le Cycle Comportemental</h3>
+                 <div class="flex justify-between text-center gap-2">
+                     <div class="flex-1 bg-white ink-border p-3">
+                         <div class="text-4xl font-bold text-gray-300 mb-1">1</div>
+                         <h4 class="handwritten text-lg font-bold text-green-700 mb-1">IDÉALISATION</h4>
+                         <p class="body-text text-sm leading-tight">Love Bombing, "Mi Vida", <span class="font-bold">Promesses futures</span>.</p>
                      </div>
-                     <div class="flex-1 bg-gray-100 ink-border p-4 transform translate-y-4">
-                         <div class="text-5xl font-bold text-gray-300 mb-2">2</div>
-                         <h4 class="handwritten text-xl font-bold text-yellow-700">PANIQUE</h4>
-                         <p class="body-text text-lg">Le mur se lève</p>
+                     <div class="flex-1 bg-gray-100 ink-border p-3 transform translate-y-3">
+                         <div class="text-4xl font-bold text-gray-300 mb-1">2</div>
+                         <h4 class="handwritten text-lg font-bold text-yellow-700 mb-1">PANIQUE</h4>
+                         <p class="body-text text-sm leading-tight"><span class="font-bold">La réalité frappe (responsabilité)</span>. Le mur se lève.</p>
                      </div>
-                     <div class="flex-1 bg-black text-white ink-border p-4">
-                         <div class="text-5xl font-bold text-gray-600 mb-2">3</div>
-                         <h4 class="handwritten text-xl font-bold text-red-500">FUITE</h4>
-                         <p class="body-text text-lg">Rupture brutale</p>
+                     <div class="flex-1 bg-black text-white ink-border p-3">
+                         <div class="text-4xl font-bold text-gray-600 mb-1">3</div>
+                         <h4 class="handwritten text-lg font-bold text-red-500 mb-1">FUITE</h4>
+                         <p class="body-text text-sm leading-tight">Rupture brutale <span class="font-bold">ou blocage immédiat</span>.</p>
                      </div>
                  </div>
             </div>
 
-            <div class="bg-white p-8 mb-10 relative border-l-8 border-yellow-400 shadow-md">
-                 <h3 class="text-3xl font-bold mb-4">Fonction & Arc</h3>
-                 <p class="body-text text-2xl text-justify mb-4">
-                    <span class="font-bold">L'espoir du jumeau d'âme.</span> Il valide les émotions de la protagoniste mais reproduit ses propres schémas de fuite.
+            <!-- Fonction (Expanded) -->
+            <div class="bg-white p-6 mb-6 relative border-l-8 border-yellow-400 shadow-md">
+                 <h3 class="text-2xl font-bold mb-2">Fonction & Arc</h3>
+                 <p class="body-text text-xl text-justify mb-2">
+                    <span class="font-bold">L'espoir du jumeau d'âme.</span> Il reflète parfaitement l'univers émotionnel de la protagoniste <span class="italic bg-yellow-100 px-1">(TPL, peur de l'abandon, besoin de fusion)</span>.
                  </p>
-                 <p class="body-text text-2xl text-justify">
-                    <span class="font-bold">Arc de l'étoile filante :</span> Il choisit la sécurité de l'isolement plutôt que le risque de l'amour.
+                 <p class="body-text text-xl text-justify">
+                    <span class="font-bold">Arc de l'étoile filante :</span> Il valide ses émotions mais choisit la sécurité de l'isolement plutôt que le risque de l'amour.
                  </p>
             </div>
 
-            <div class="ink-border bg-white p-8 flex-grow relative">
-                <h2 class="text-4xl mb-8 border-b-4 border-black inline-block">Ligne du Temps</h2>
+            <!-- Timeline -->
+            <div class="ink-border bg-white p-6 flex-grow relative">
+                <h2 class="text-3xl mb-4 border-b-4 border-black inline-block">Ligne du Temps</h2>
                 
-                <div class="space-y-10 relative pl-12">
+                <div class="space-y-6 relative pl-10">
                     <div class="timeline-line"></div>
                     
-                    <!-- Event 1 -->
                     <div class="relative">
-                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-white z-10"></div>
-                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Septembre 2025</p>
-                        <h4 class="text-3xl font-bold mt-1">L'accélération fusionnelle</h4>
+                        <div class="absolute -left-[49px] top-1 w-6 h-6 bg-black rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-sm tracking-wide">Septembre 2025</p>
+                        <h4 class="text-2xl font-bold leading-none">L'accélération fusionnelle</h4>
                     </div>
 
-                    <!-- Event 2 -->
                     <div class="relative">
-                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-gray-400 rounded-full border-4 border-white z-10"></div>
-                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Début Octobre 2025</p>
-                        <h4 class="text-3xl font-bold mt-1">La rupture par le blocage</h4>
+                        <div class="absolute -left-[49px] top-1 w-6 h-6 bg-gray-400 rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-sm tracking-wide">Début Octobre 2025</p>
+                        <h4 class="text-2xl font-bold leading-none">La rupture par le blocage</h4>
                     </div>
 
-                    <!-- Event 3 -->
                     <div class="relative">
-                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-white z-10"></div>
-                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Mi Octobre 2025</p>
-                        <h4 class="text-3xl font-bold mt-1">Le déblocage et le retour</h4>
+                        <div class="absolute -left-[49px] top-1 w-6 h-6 bg-black rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-sm tracking-wide">Mi Octobre 2025</p>
+                        <h4 class="text-2xl font-bold leading-none">Le déblocage et le retour</h4>
                     </div>
 
-                     <!-- Event 4 -->
                      <div class="relative">
-                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-red-600 rounded-full border-4 border-white z-10"></div>
-                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Début Novembre 2025</p>
-                        <h4 class="text-3xl font-bold mt-1">La panique de la grossesse & La fin froide</h4>
+                        <div class="absolute -left-[49px] top-1 w-6 h-6 bg-red-600 rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-sm tracking-wide">Début Novembre 2025</p>
+                        <h4 class="text-2xl font-bold leading-none">La panique & La fin froide</h4>
                     </div>
 
-                    <!-- Event 5 -->
                      <div class="relative">
-                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-yellow-400 z-10"></div>
-                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Mi Novembre 2025</p>
-                        <h4 class="text-3xl font-bold mt-1">La tentative de reprise à zéro</h4>
+                        <div class="absolute -left-[49px] top-1 w-6 h-6 bg-black rounded-full border-4 border-yellow-400 z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-sm tracking-wide">Mi Novembre 2025</p>
+                        <h4 class="text-2xl font-bold leading-none">La tentative de reprise à zéro</h4>
                     </div>
-
                 </div>
             </div>
 
-             <div class="text-center mt-6">
+             <div class="text-center mt-4">
                 <span class="handwritten text-2xl text-gray-400">3 / 3</span>
             </div>
         </div>
