@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiche Personnage : Jean-Christophe Blanchard (Mobile HD)</title>
+    <title>Fiche Personnage : Jean-Christophe Blanchard (v4 Timeline Correct)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,7 +28,6 @@
             font-family: 'Special Elite', monospace;
         }
 
-        /* Container styling for the 1080x1920 slides */
         .slide {
             width: var(--slide-width);
             height: var(--slide-height);
@@ -38,16 +37,13 @@
             overflow: hidden;
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
             flex-shrink: 0;
-            /* Background Texture */
             background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7z' fill='%239C92AC' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
         }
 
-        /* Typography */
         h1, h2, h3, .marker-font { font-family: 'Permanent Marker', cursive; }
         .handwritten { font-family: 'Rock Salt', cursive; }
         .body-text { font-family: 'Roboto Condensed', sans-serif; }
 
-        /* Graphic Elements */
         .ink-border {
             border: 4px solid var(--ink-black);
             box-shadow: 8px 8px 0px 0px rgba(10,10,10,1);
@@ -58,26 +54,30 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Auto-scaling script helper class */
         .scaled-wrapper {
             transform-origin: top center;
+        }
+        
+        .timeline-line {
+            position: absolute;
+            left: 36px;
+            top: 20px;
+            bottom: 20px;
+            width: 4px;
+            background: #d1d5db;
         }
     </style>
 </head>
 <body>
 
-    <!-- SCRIPT TO SCALE THE SLIDES TO FIT SCREEN -->
     <script>
         function scaleSlides() {
             const slides = document.querySelectorAll('.slide');
             const wrapper = document.getElementById('slide-wrapper');
             const windowWidth = window.innerWidth;
             const slideWidth = 1080;
-            // Add some margin
             const scale = Math.min(1, (windowWidth - 40) / slideWidth);
-            
             wrapper.style.transform = `scale(${scale})`;
-            // Adjust height of container to match scaled content
             wrapper.style.height = `${(1920 * scale * slides.length) + (40 * slides.length)}px`;
         }
         window.addEventListener('resize', scaleSlides);
@@ -86,10 +86,8 @@
 
     <div id="slide-wrapper" class="scaled-wrapper flex flex-col gap-10">
 
-        <!-- ======================= SLIDE 1: IDENTITÉ & BAGAGE ======================= -->
+        <!-- ======================= SLIDE 1 ======================= -->
         <div class="slide p-12 flex flex-col justify-between">
-            
-            <!-- Header -->
             <div class="relative mt-8">
                 <div class="absolute top-0 right-0 z-10 transform rotate-3">
                     <span class="tape-effect px-6 py-2 text-2xl font-bold text-red-900 border border-gray-300">
@@ -98,18 +96,18 @@
                 </div>
                 
                 <h1 class="text-8xl leading-none mb-2 mt-4 transform -rotate-1">JEAN-CHRISTOPHE<br><span class="text-6xl text-gray-700 ml-2">BLANCHARD</span></h1>
-                <h2 class="text-4xl handwritten text-gray-500 ml-4 mt-2">aka "Juan Cristobal"</h2>
+                <div class="ml-4 mt-2 inline-block bg-black text-white px-4 py-1 transform -rotate-2">
+                    <h2 class="text-3xl handwritten">aka "Juan Cristobal"</h2>
+                </div>
 
-                <!-- Tags Row (Fixed Separation) -->
-                <div class="flex flex-wrap gap-4 mt-8">
-                    <span class="bg-black text-white px-4 py-2 text-xl font-bold uppercase transform -rotate-1">Père</span>
-                    <span class="bg-black text-white px-4 py-2 text-xl font-bold uppercase transform rotate-1">Musicien</span>
-                    <span class="bg-black text-white px-4 py-2 text-xl font-bold uppercase transform -rotate-1">Vanlife</span>
-                    <span class="bg-gray-200 border-2 border-black text-black px-4 py-2 text-xl font-bold uppercase transform rotate-2">Spanglish</span>
+                <div class="flex flex-wrap gap-4 mt-12 pl-2">
+                    <span class="bg-white border-2 border-black px-6 py-2 text-2xl font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Père</span>
+                    <span class="bg-white border-2 border-black px-6 py-2 text-2xl font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Musicien</span>
+                    <span class="bg-white border-2 border-black px-6 py-2 text-2xl font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]">Vanlife</span>
+                    <span class="bg-gray-800 text-white border-2 border-black px-6 py-2 text-2xl font-bold uppercase shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transform rotate-2">Spanglish</span>
                 </div>
             </div>
 
-            <!-- Image -->
             <div class="ink-border bg-white p-4 mx-4 my-6 rotate-1">
                 <div class="w-full aspect-square overflow-hidden bg-gray-200 border-2 border-black relative">
                      <img src="Gemini_Generated_Image_jmi8cojmi8cojmi8.png" 
@@ -119,14 +117,12 @@
                 </div>
             </div>
 
-            <!-- Bagage & Apparence -->
             <div class="space-y-8 mb-8">
                 <div class="bg-gray-100 p-6 border-l-8 border-black shadow-lg">
                     <h2 class="text-4xl mb-2">Bagage</h2>
                     <p class="body-text text-3xl">Ancien polytoxicomane ayant vécu dans la rue.</p>
                 </div>
 
-                <!-- Apparence Split -->
                 <div class="flex border-4 border-black">
                     <div class="w-1/2 bg-white p-6 border-r-4 border-black text-center">
                         <p class="uppercase text-sm tracking-widest text-gray-500 mb-2">Apparence Ext.</p>
@@ -139,21 +135,16 @@
                 </div>
             </div>
             
-            <!-- Footer decoration -->
             <div class="text-center mt-4">
                 <span class="handwritten text-2xl text-gray-400">1 / 3</span>
             </div>
         </div>
 
-
-        <!-- ======================= SLIDE 2: PSYCHOLOGIE & CITATIONS ======================= -->
+        <!-- ======================= SLIDE 2 ======================= -->
         <div class="slide p-12 flex flex-col">
-            
             <h2 class="text-6xl text-center mb-10 border-b-8 border-black pb-4">PSYCHOLOGIE</h2>
 
             <div class="flex-grow space-y-10">
-                
-                <!-- Traits Grid -->
                 <div class="grid grid-cols-2 gap-8">
                     <div class="ink-border bg-white p-6">
                         <h3 class="text-3xl text-green-800 mb-2">Qualités</h3>
@@ -165,7 +156,6 @@
                     </div>
                 </div>
 
-                <!-- Motivations -->
                 <div class="bg-gray-100 p-8 border-l-8 border-gray-400">
                     <h3 class="text-3xl font-bold mb-4 uppercase">Motivations & Peurs</h3>
                     <ul class="space-y-4 body-text text-2xl">
@@ -175,7 +165,6 @@
                     </ul>
                 </div>
 
-                <!-- Attachment Style (Highlighted) -->
                 <div class="bg-black text-white p-8 text-center transform -rotate-1 shadow-xl border-4 border-white outline outline-4 outline-black">
                     <h3 class="uppercase tracking-[0.3em] text-xl mb-2 text-gray-300">Style d'Attachement</h3>
                     <p class="marker-font text-6xl text-yellow-400 mb-2">DÉSORGANISÉ</p>
@@ -183,7 +172,6 @@
                     <p class="body-text text-2xl italic px-10">"Viens ici, va-t'en." — Le dilemme permanent.</p>
                 </div>
 
-                 <!-- Quotes Section (Separated from Timeline) -->
                 <div class="mt-8 text-center space-y-8 py-6 border-y-4 border-dashed border-gray-400">
                     <p class="handwritten text-3xl leading-relaxed text-gray-800">
                         "Je suis incapable d'aimer maintenant, car mes blessures sont toujours là."
@@ -192,17 +180,15 @@
                         "DO SVIDANIYA."
                     </p>
                 </div>
-
             </div>
              <div class="text-center mt-4">
                 <span class="handwritten text-2xl text-gray-400">2 / 3</span>
             </div>
         </div>
 
-        <!-- ======================= SLIDE 3: NARRATION & TIMELINE ======================= -->
+        <!-- ======================= SLIDE 3 ======================= -->
         <div class="slide p-12 flex flex-col">
             
-            <!-- Cycle Comportemental -->
             <div class="mb-12">
                  <h3 class="text-center font-bold text-2xl uppercase mb-6 tracking-widest border-b-2 border-black inline-block pb-1">Le Cycle Comportemental</h3>
                  <div class="flex justify-between text-center gap-4">
@@ -224,7 +210,6 @@
                  </div>
             </div>
 
-            <!-- Narrative Function -->
             <div class="bg-white p-8 mb-10 relative border-l-8 border-yellow-400 shadow-md">
                  <h3 class="text-3xl font-bold mb-4">Fonction & Arc</h3>
                  <p class="body-text text-2xl text-justify mb-4">
@@ -235,48 +220,48 @@
                  </p>
             </div>
 
-            <!-- Timeline (Clean Separation) -->
-            <div class="ink-border bg-white p-8 flex-grow">
+            <div class="ink-border bg-white p-8 flex-grow relative">
                 <h2 class="text-4xl mb-8 border-b-4 border-black inline-block">Ligne du Temps</h2>
                 
-                <div class="space-y-8 relative pl-8 border-l-4 border-gray-300 ml-4">
+                <div class="space-y-10 relative pl-12">
+                    <div class="timeline-line"></div>
                     
                     <!-- Event 1 -->
                     <div class="relative">
-                        <div class="absolute -left-[44px] top-2 w-6 h-6 bg-black rounded-full border-4 border-white"></div>
-                        <p class="text-gray-500 uppercase font-bold text-sm">Sept. - Oct. 2025</p>
-                        <h4 class="text-2xl font-bold">L'accélération fusionnelle</h4>
+                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Septembre 2025</p>
+                        <h4 class="text-3xl font-bold mt-1">L'accélération fusionnelle</h4>
                     </div>
 
                     <!-- Event 2 -->
                     <div class="relative">
-                        <div class="absolute -left-[44px] top-2 w-6 h-6 bg-gray-400 rounded-full border-4 border-white"></div>
-                        <p class="text-gray-500 uppercase font-bold text-sm">Mi-Octobre 2025</p>
-                        <h4 class="text-2xl font-bold">La rupture par le blocage</h4>
+                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-gray-400 rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Début Octobre 2025</p>
+                        <h4 class="text-3xl font-bold mt-1">La rupture par le blocage</h4>
                     </div>
 
                     <!-- Event 3 -->
                     <div class="relative">
-                        <div class="absolute -left-[44px] top-2 w-6 h-6 bg-black rounded-full border-4 border-white"></div>
-                        <p class="text-gray-500 uppercase font-bold text-sm">Début Nov. 2025</p>
-                        <h4 class="text-2xl font-bold">Le déblocage et le retour</h4>
-                        <p class="italic text-lg text-gray-600">Tentative de reprise à zéro</p>
+                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Mi Octobre 2025</p>
+                        <h4 class="text-3xl font-bold mt-1">Le déblocage et le retour</h4>
                     </div>
 
                      <!-- Event 4 -->
                      <div class="relative">
-                        <div class="absolute -left-[44px] top-2 w-6 h-6 bg-red-600 rounded-full border-4 border-white"></div>
-                        <p class="text-gray-500 uppercase font-bold text-sm">Mi-Novembre 2025</p>
-                        <h4 class="text-2xl font-bold">La panique de la grossesse & La fin froide</h4>
+                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-red-600 rounded-full border-4 border-white z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Début Novembre 2025</p>
+                        <h4 class="text-3xl font-bold mt-1">La panique de la grossesse & La fin froide</h4>
+                    </div>
+
+                    <!-- Event 5 -->
+                     <div class="relative">
+                        <div class="absolute -left-[58px] top-2 w-8 h-8 bg-black rounded-full border-4 border-yellow-400 z-10"></div>
+                        <p class="text-gray-500 uppercase font-bold text-xl tracking-wide">Mi Novembre 2025</p>
+                        <h4 class="text-3xl font-bold mt-1">La tentative de reprise à zéro</h4>
                     </div>
 
                 </div>
-            </div>
-
-            <!-- Lesson -->
-            <div class="mt-8 bg-black text-white p-4 text-center transform rotate-1">
-                <p class="uppercase text-sm tracking-widest text-gray-400">Leçon à retenir</p>
-                <p class="body-text text-xl">Réaliser que sa stratégie de fuite l'empêche de construire la stabilité qu'il désire.</p>
             </div>
 
              <div class="text-center mt-6">
